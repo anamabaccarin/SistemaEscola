@@ -7,6 +7,6 @@
     <title>Sistema Laravel</title>
 </head>
 <body>
-    <h1> Página Home</h1>
+    <h1>Página Home{{$id}}</h1> <!-- laravel converte isso {{$id}} para php echo -->
 </body>
 </html>
