@@ -1,15 +1,28 @@
 <?php
 
-namespace App\Http\Controllers; //namespace avisa em qual o contexto a classe está salva
+namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;// no laravel para usar uma classe é necessario o "use"
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function home(Request $request, $id){//recebendo objeto do tipo request onde estão todos os metodos get, post...
-        if($request->isMethod('GET')){ //essa verificacao é usada qdo houver metodo post e get(aqui temos apenas get):aqui pergunta pro request se o metodo é do tipo get 
-            $idade = 21;
-            return view('home',['id'=>$id]);//primeiro vai para controller e depois para view
-        }
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
+    {
+        return view('home');
     }
 }
